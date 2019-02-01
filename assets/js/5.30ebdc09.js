@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{66:function(e,t,n){"use strict";n.r(t);var r={props:{href:{type:String,required:!0}}},i=n(0),s=Object(i.a)(r,function(){var e=this.$createElement;return(this._self._c||e)("a",{attrs:{href:this.href,download:""}},[this._t("default")],2)},[],!1,null,null,null);s.options.__file="DownLink.vue";t.default=s.exports}}]);

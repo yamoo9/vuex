@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>게터 | Vuex 러닝 가이드북</title>
+    <meta name="description" content="Vuex 학습을 위한 가이드북 입니다.">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="keywords" content="vue, vuex, 상태 관리 매니저">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <link rel="shortcut icon" href="/vuex/favicon/favicon.png">
+    
+    <link rel="preload" href="/vuex/assets/css/0.styles.0b323839.css" as="style"><link rel="preload" href="/vuex/assets/js/app.b4930d20.js" as="script"><link rel="preload" href="/vuex/assets/js/11.8d4ec395.js" as="script"><link rel="prefetch" href="/vuex/assets/js/10.374c869d.js"><link rel="prefetch" href="/vuex/assets/js/12.fd922986.js"><link rel="prefetch" href="/vuex/assets/js/13.55ca2ad1.js"><link rel="prefetch" href="/vuex/assets/js/14.345c42bc.js"><link rel="prefetch" href="/vuex/assets/js/15.83d10d5b.js"><link rel="prefetch" href="/vuex/assets/js/16.daeca327.js"><link rel="prefetch" href="/vuex/assets/js/17.76526891.js"><link rel="prefetch" href="/vuex/assets/js/18.d0cfdee5.js"><link rel="prefetch" href="/vuex/assets/js/19.0de1610f.js"><link rel="prefetch" href="/vuex/assets/js/2.c476735a.js"><link rel="prefetch" href="/vuex/assets/js/20.08cec3aa.js"><link rel="prefetch" href="/vuex/assets/js/21.362492ad.js"><link rel="prefetch" href="/vuex/assets/js/22.ca164fa7.js"><link rel="prefetch" href="/vuex/assets/js/23.91fa4c21.js"><link rel="prefetch" href="/vuex/assets/js/24.ee7c31a8.js"><link rel="prefetch" href="/vuex/assets/js/25.ff7fc6ad.js"><link rel="prefetch" href="/vuex/assets/js/26.26dae915.js"><link rel="prefetch" href="/vuex/assets/js/3.10d7cbbb.js"><link rel="prefetch" href="/vuex/assets/js/4.e28e8c39.js"><link rel="prefetch" href="/vuex/assets/js/5.30ebdc09.js"><link rel="prefetch" href="/vuex/assets/js/6.bda72be0.js"><link rel="prefetch" href="/vuex/assets/js/7.7354255b.js"><link rel="prefetch" href="/vuex/assets/js/8.607777b5.js"><link rel="prefetch" href="/vuex/assets/js/9.f6b9acc8.js">
+    <link rel="stylesheet" href="/vuex/assets/css/0.styles.0b323839.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuex/" class="home-link router-link-active"><img src="/vuex/images/vuex.png" alt="Vuex 러닝 가이드북" class="logo"> <span class="site-name can-hide">Vuex 러닝 가이드북</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>소개</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>준비</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Vuex 기초</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/vuex/2-vuex/" class="sidebar-link">설치</a></li><li><a href="/vuex/2-vuex/Register.html" class="sidebar-link">등록 / 설정</a></li><li><a href="/vuex/2-vuex/State.html" class="sidebar-link">스테이트</a></li><li><a href="/vuex/2-vuex/Mutations.html" class="sidebar-link">뮤테이션</a></li><li><a href="/vuex/2-vuex/Getters.html" class="active sidebar-link">게터</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex/2-vuex/Getters.html#판매-가능한-도서-필터링" class="sidebar-link">판매 가능한 도서 필터링</a></li><li class="sidebar-sub-header"><a href="/vuex/2-vuex/Getters.html#필터링-도서-렌더링" class="sidebar-link">필터링 도서 렌더링</a></li><li class="sidebar-sub-header"><a href="/vuex/2-vuex/Getters.html#개발도구-vuex-확인" class="sidebar-link">개발도구 Vuex 확인</a></li></ul></li><li><a href="/vuex/2-vuex/Actions.html" class="sidebar-link">액션</a></li><li><a href="/vuex/2-vuex/Injection.html" class="sidebar-link">주입</a></li></ul></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>쇼핑 카트</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Vuex 옵션</span> <span class="arrow right"></span></p> <!----></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="게터"><a href="#게터" aria-hidden="true" class="header-anchor">#</a> 게터</h1> <h2 id="판매-가능한-도서-필터링"><a href="#판매-가능한-도서-필터링" aria-hidden="true" class="header-anchor">#</a> 판매 가능한 도서 필터링</h2> <p>도서 데이터의 각 아이템은 재고(inventory) 정보를 가지고 있습니다.
+재고가 있는 판매 가능한 도서만 필터링하여 별도로 사용하고 싶을 수 있습니다.
+이런 경우 게터(getters)를 사용합니다.</p> <div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p>Vuex 스토어의 게터(<code>getters</code>)는 Vue 컴포넌트의 계산된 속성(<code>computed</code>)과 유사합니다.
+런타임 중에 필터링 하거나, 계산해야 할 때 사용합니다.</p></div> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// api/shop.js</span>
+
+<span class="token keyword">const</span> books <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'세계사의 거장들'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">22500</span><span class="token punctuation">,</span>
+    inventory<span class="token punctuation">:</span> <span class="token number">7</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'당신이 옳다'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">14200</span><span class="token punctuation">,</span>
+    inventory<span class="token punctuation">:</span> <span class="token number">0</span>  <span class="token comment">// 재고가 없는 도서</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">{</span>
+    name<span class="token punctuation">:</span> <span class="token string">'꽃을 보듯 너를 본다'</span><span class="token punctuation">,</span>
+    price<span class="token punctuation">:</span> <span class="token number">9000</span><span class="token punctuation">,</span>
+    inventory<span class="token punctuation">:</span> <span class="token number">13</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">]</span>
+</code></pre></div><p>앞서 다뤘던 setBooks 뮤테이션은 API의 <code>books</code> 데이터를 <code>state.books</code>에 설정합니다.</p> <p>스토어의 도서 데이터에서 판매 가능한 도서만 골라내려면 <code>state.books</code> 데이터(배열)를
+필터링(filter) 하여 결과를 반환하는 게터를 추가해야 합니다.
+<code>availableBooks</code> 게터를 추가한 후 재고가 0보다 큰 아이템만 골라내는 로직을 작성합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/index.js</span>
+
+<span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    books<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">availableBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">.</span>books<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>book <span class="token operator">=&gt;</span> book<span class="token punctuation">.</span>inventory <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">setBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> books<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>books <span class="token operator">=</span> books
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p>게터 메서드는 첫번째 인자로 상태(state)를 전달 받고, 뒤이어 게터(getters)를 전달 받습니다.</p></div> <h2 id="필터링-도서-렌더링"><a href="#필터링-도서-렌더링" aria-hidden="true" class="header-anchor">#</a> 필터링 도서 렌더링</h2> <p>게터 <code>availableBooks</code>가 반환하는 데이터는 재고가 있는 판매 가능한 도서만 필터링 된 결과입니다.
+이 결과 값을 컴포넌트의 <code>books</code> 데이터로 계산되도록 설정하면 브라우저 화면엔 판매 가능한
+도서만 렌더링 됩니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// components/BookList.vue</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">&quot;BookList&quot;</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">books</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>availableBooks<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="개발도구-vuex-확인"><a href="#개발도구-vuex-확인" aria-hidden="true" class="header-anchor">#</a> 개발도구 Vuex 확인</h2> <p>Vue Devtools 개발도구의 Vuex 탭을 선택해 확인해보면 <code>state.books</code> 데이터와 달리 <code>getters.availableBooks</code> 데이터는
+판매 가능한 도서만 필터링된 결과임을 볼 수 있습니다.</p> <img src="/vuex/images/getters.png" alt></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vuex/2-vuex/Mutations.html" class="prev">
+          뮤테이션
+        </a></span> <span class="next"><a href="/vuex/2-vuex/Actions.html">
+          액션
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/vuex/assets/js/app.b4930d20.js" defer></script><script src="/vuex/assets/js/11.8d4ec395.js" defer></script>
+  </body>
+</html>

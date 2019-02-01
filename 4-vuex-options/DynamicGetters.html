@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>동적 Vuex 게터 | Vuex 러닝 가이드북</title>
+    <meta name="description" content="Vuex의 동적 getters에 대해 학습해봅니다.">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="keywords" content="vue, vuex, 상태 관리 매니저">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <link rel="shortcut icon" href="/vuex/favicon/favicon.png">
+    
+    <link rel="preload" href="/vuex/assets/css/0.styles.0b323839.css" as="style"><link rel="preload" href="/vuex/assets/js/app.b4930d20.js" as="script"><link rel="preload" href="/vuex/assets/js/20.08cec3aa.js" as="script"><link rel="prefetch" href="/vuex/assets/js/10.374c869d.js"><link rel="prefetch" href="/vuex/assets/js/11.8d4ec395.js"><link rel="prefetch" href="/vuex/assets/js/12.fd922986.js"><link rel="prefetch" href="/vuex/assets/js/13.55ca2ad1.js"><link rel="prefetch" href="/vuex/assets/js/14.345c42bc.js"><link rel="prefetch" href="/vuex/assets/js/15.83d10d5b.js"><link rel="prefetch" href="/vuex/assets/js/16.daeca327.js"><link rel="prefetch" href="/vuex/assets/js/17.76526891.js"><link rel="prefetch" href="/vuex/assets/js/18.d0cfdee5.js"><link rel="prefetch" href="/vuex/assets/js/19.0de1610f.js"><link rel="prefetch" href="/vuex/assets/js/2.c476735a.js"><link rel="prefetch" href="/vuex/assets/js/21.362492ad.js"><link rel="prefetch" href="/vuex/assets/js/22.ca164fa7.js"><link rel="prefetch" href="/vuex/assets/js/23.91fa4c21.js"><link rel="prefetch" href="/vuex/assets/js/24.ee7c31a8.js"><link rel="prefetch" href="/vuex/assets/js/25.ff7fc6ad.js"><link rel="prefetch" href="/vuex/assets/js/26.26dae915.js"><link rel="prefetch" href="/vuex/assets/js/3.10d7cbbb.js"><link rel="prefetch" href="/vuex/assets/js/4.e28e8c39.js"><link rel="prefetch" href="/vuex/assets/js/5.30ebdc09.js"><link rel="prefetch" href="/vuex/assets/js/6.bda72be0.js"><link rel="prefetch" href="/vuex/assets/js/7.7354255b.js"><link rel="prefetch" href="/vuex/assets/js/8.607777b5.js"><link rel="prefetch" href="/vuex/assets/js/9.f6b9acc8.js">
+    <link rel="stylesheet" href="/vuex/assets/css/0.styles.0b323839.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuex/" class="home-link router-link-active"><img src="/vuex/images/vuex.png" alt="Vuex 러닝 가이드북" class="logo"> <span class="site-name can-hide">Vuex 러닝 가이드북</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>소개</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>준비</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Vuex 기초</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>쇼핑 카트</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Vuex 옵션</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/vuex/4-vuex-options/DynamicGetters.html" class="active sidebar-link">동적 Vuex 게터</a></li><li><a href="/vuex/4-vuex-options/MapHelpers.html" class="sidebar-link">Map 헬퍼</a></li><li><a href="/vuex/4-vuex-options/SeparationConcerns.html" class="sidebar-link">관심사의 분리</a></li><li><a href="/vuex/4-vuex-options/Modules.html" class="sidebar-link">모듈</a></li><li><a href="/vuex/4-vuex-options/NamespacedModules.html" class="sidebar-link">네임스페이스 모듈</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="동적-vuex-게터"><a href="#동적-vuex-게터" aria-hidden="true" class="header-anchor">#</a> 동적 Vuex 게터</h1> <p><a href="https://goo.gl/LWaJ98" target="_blank" rel="noopener noreferrer">고차 함수(Higher-order_function)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>를 사용해 Vuex에서 동적 게터를 만드는 방법을 살펴 보겠습니다. 동적 게터는 게터에 인자를 전달할 수 있습니다. 이런 방법은 인자를 전달해 스토어를 조회할 때 유용합니다.</p> <p>일반적인 사용 예는 <code>id</code>를 전달해 스테이트에서 아이템을 찾는 게터입니다.</p> <div class="language-js extra-class"><pre class="language-js"><code>getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token function">getBookById</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>id<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">.</span>books<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>book <span class="token operator">=&gt;</span> book<span class="token punctuation">.</span>id <span class="token operator">===</span> id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p><a href="https://goo.gl/hdduQF" target="_blank" rel="noopener noreferrer">화살표 함수<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>를 사용해 다음과 같이 작성할 수도 있습니다.</p> <div class="language-js extra-class"><pre class="language-js"><code>getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  getBookById<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> id <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>books<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>book <span class="token operator">=&gt;</span> book<span class="token punctuation">.</span>id <span class="token operator">===</span> id<span class="token punctuation">)</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <hr> <p>판매 가능한 도서만 표시하던 대신 '카트에 추가' 버튼을 비활성화 하는 방향으로 전환하기 위해
+컴포넌트에 사용된 스토어의 <code>availableBooks</code> 코드를 제거하고, 모든 도서를 화면에 표시하도록
+스토어의 <code>books</code> 스테이트로 변경합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// components/BookList.vue</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'BookList'</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">books</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// return this.$store.getters.availableBooks;</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>state<span class="token punctuation">.</span>books<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>도서 재고가 없을 경우 품절(Out of Stock)로 버튼을 사용할 수 없도록 설정해봅니다.</p> <p>버튼의 <code>disabled</code> 속성을 동적으로 설정하는 게터 <code>checkOutOfStock</code>를 설정하고, 인자로 <code>book</code>을 전달하는 코드를 작성합니다.
+컴포넌트의 계산된 속성 <code>checkOutOfStock</code>은 스토어의 <code>checkOutOfStock</code> 게터를 반환하도록 설정합니다.</p> <div class="language-vue extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br></div><pre class="language-vue"><code><span class="token comment">&lt;!-- components/BookList.vue --&gt;</span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>book-list<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token comment">&lt;!-- ... --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">v-else</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">v-for</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>(book,i) in books<span class="token punctuation">&quot;</span></span> <span class="token attr-name">:key</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>i<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span>
+        {{ book.name }} / {{ book.price | won }}
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+          <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>button<span class="token punctuation">&quot;</span></span>
+          <span class="token attr-name">@click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>addBookToCart(book)<span class="token punctuation">&quot;</span></span>
+          <span class="token attr-name">:disabled</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>checkOutOfStock(book)<span class="token punctuation">&quot;</span></span>
+        <span class="token punctuation">&gt;</span></span>카트에 추가<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">&gt;</span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">&quot;BookList&quot;</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">checkOutOfStock</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$store<span class="token punctuation">.</span>getters<span class="token punctuation">.</span>checkOutOfStock<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p>'Sold Out'과 'Out of Stock'의 의미는 다소 다릅니다.</p> <table><thead><tr><th>용어</th> <th>설명</th></tr></thead> <tbody><tr><td>매진(sold out)</td> <td>판매 가능하지 않은</td></tr> <tr><td>품절(out of stock)</td> <td>(일시적으로) 재고가 없는</td></tr></tbody></table></div> <p>스토어에 <code>checkOutOfStock</code> 동적 게터를 추가한 후, 반환되는 함수의 매개변수로 도서(<code>book</code>)을 설정합니다.
+동적 게터를 통해 전달 받은 <code>book</code>의 재고가 0일 경우 <code>true</code>를 아닐 경우 <code>false</code>를 반환합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// store/index.js</span>
+getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token function">checkOutOfStock</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> book <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> book<span class="token punctuation">.</span>inventory <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p>다음과 같이 코드를 변경할 수 있습니다.</p> <div class="language-js extra-class"><pre class="language-js"><code>getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  checkOutOfStock<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> book <span class="token operator">=&gt;</span> book<span class="token punctuation">.</span>inventory <span class="token operator">===</span> <span class="token number">0</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <p>스토어의 <code>addBookToCart</code> 액션 코드에서도 동적 게터를 활용할 수 있습니다.
+액션의 첫번째 인자에서 <code>getters</code>를 추가한 후, 조건으로 동적 게터를 활용한 예입니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><br><div class="highlighted"> </div><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/index.js</span>
+
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token function">addBookToCart</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> commit<span class="token punctuation">}</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// if (book.inventory &gt; 0) {</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>getters<span class="token punctuation">.</span><span class="token function">checkOutOfStock</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// ...</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vuex/3-cart/Purchage.html" class="prev">
+          구매
+        </a></span> <span class="next"><a href="/vuex/4-vuex-options/MapHelpers.html">
+          Map 헬퍼
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/vuex/assets/js/app.b4930d20.js" defer></script><script src="/vuex/assets/js/20.08cec3aa.js" defer></script>
+  </body>
+</html>

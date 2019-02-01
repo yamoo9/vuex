@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>모듈 | Vuex 러닝 가이드북</title>
+    <meta name="description" content="Vuex 학습을 위한 가이드북 입니다.">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="keywords" content="vue, vuex, 상태 관리 매니저">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <link rel="shortcut icon" href="/vuex/favicon/favicon.png">
+    
+    <link rel="preload" href="/vuex/assets/css/0.styles.0b323839.css" as="style"><link rel="preload" href="/vuex/assets/js/app.b4930d20.js" as="script"><link rel="preload" href="/vuex/assets/js/22.ca164fa7.js" as="script"><link rel="prefetch" href="/vuex/assets/js/10.374c869d.js"><link rel="prefetch" href="/vuex/assets/js/11.8d4ec395.js"><link rel="prefetch" href="/vuex/assets/js/12.fd922986.js"><link rel="prefetch" href="/vuex/assets/js/13.55ca2ad1.js"><link rel="prefetch" href="/vuex/assets/js/14.345c42bc.js"><link rel="prefetch" href="/vuex/assets/js/15.83d10d5b.js"><link rel="prefetch" href="/vuex/assets/js/16.daeca327.js"><link rel="prefetch" href="/vuex/assets/js/17.76526891.js"><link rel="prefetch" href="/vuex/assets/js/18.d0cfdee5.js"><link rel="prefetch" href="/vuex/assets/js/19.0de1610f.js"><link rel="prefetch" href="/vuex/assets/js/2.c476735a.js"><link rel="prefetch" href="/vuex/assets/js/20.08cec3aa.js"><link rel="prefetch" href="/vuex/assets/js/21.362492ad.js"><link rel="prefetch" href="/vuex/assets/js/23.91fa4c21.js"><link rel="prefetch" href="/vuex/assets/js/24.ee7c31a8.js"><link rel="prefetch" href="/vuex/assets/js/25.ff7fc6ad.js"><link rel="prefetch" href="/vuex/assets/js/26.26dae915.js"><link rel="prefetch" href="/vuex/assets/js/3.10d7cbbb.js"><link rel="prefetch" href="/vuex/assets/js/4.e28e8c39.js"><link rel="prefetch" href="/vuex/assets/js/5.30ebdc09.js"><link rel="prefetch" href="/vuex/assets/js/6.bda72be0.js"><link rel="prefetch" href="/vuex/assets/js/7.7354255b.js"><link rel="prefetch" href="/vuex/assets/js/8.607777b5.js"><link rel="prefetch" href="/vuex/assets/js/9.f6b9acc8.js">
+    <link rel="stylesheet" href="/vuex/assets/css/0.styles.0b323839.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuex/" class="home-link router-link-active"><img src="/vuex/images/vuex.png" alt="Vuex 러닝 가이드북" class="logo"> <span class="site-name can-hide">Vuex 러닝 가이드북</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>소개</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>준비</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Vuex 기초</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>쇼핑 카트</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Vuex 옵션</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/vuex/4-vuex-options/DynamicGetters.html" class="sidebar-link">동적 Vuex 게터</a></li><li><a href="/vuex/4-vuex-options/MapHelpers.html" class="sidebar-link">Map 헬퍼</a></li><li><a href="/vuex/4-vuex-options/SeparationConcerns.html" class="sidebar-link">관심사의 분리</a></li><li><a href="/vuex/4-vuex-options/Modules.html" class="active sidebar-link">모듈</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex/4-vuex-options/Modules.html#모듈-분리" class="sidebar-link">모듈 분리</a></li><li class="sidebar-sub-header"><a href="/vuex/4-vuex-options/Modules.html#모듈-분리에-따른-코드-리팩토링" class="sidebar-link">모듈 분리에 따른 코드 리팩토링</a></li><li class="sidebar-sub-header"><a href="/vuex/4-vuex-options/Modules.html#쇼핑-카트에-추가-시-오류-발생" class="sidebar-link">쇼핑 카트에 추가 시 오류 발생</a></li></ul></li><li><a href="/vuex/4-vuex-options/NamespacedModules.html" class="sidebar-link">네임스페이스 모듈</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="모듈"><a href="#모듈" aria-hidden="true" class="header-anchor">#</a> 모듈</h1> <p>스토어를 <a href="/vuex/4-vuex-options/SeparationConcerns.html">여러 파일로 분할</a>하는 것만으로는 충분하지 않은 경우, 스토어를 Vuex 모듈로 나눠 관리 할 수 있습니다.</p> <div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p>개별 Vuex 모듈은 로컬 상태, 뮤테이션, 액션, 게터를 가질 수 있습니다.</p></div> <h2 id="모듈-분리"><a href="#모듈-분리" aria-hidden="true" class="header-anchor">#</a> 모듈 분리</h2> <p>스토어에서 <code>books</code> 모듈과 관련된 것을 추려내어 <code>books.js</code> 모듈 파일을 만듭니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// store/modules/books.js</span>
+
+<span class="token keyword">import</span> shop <span class="token keyword">from</span> <span class="token string">'@/api/shop'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    books<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">availableBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">.</span>books<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>book <span class="token operator">=&gt;</span> book<span class="token punctuation">.</span>inventory <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">checkOutOfStock</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> book <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> book<span class="token punctuation">.</span>inventory <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">fetchBooks</span><span class="token punctuation">(</span><span class="token punctuation">{</span>commit<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        shop<span class="token punctuation">.</span><span class="token function">getBooks</span><span class="token punctuation">(</span>books <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;setBooks&quot;</span><span class="token punctuation">,</span> books<span class="token punctuation">)</span>
+          <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">setBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> books<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>books <span class="token operator">=</span> books
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">decreamentBookInventory</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      book<span class="token punctuation">.</span>inventory<span class="token operator">--</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>cart</code> 모듈 또한 추려내어 <code>cart.js</code> 파일을 생성합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// store/modules/cart.js</span>
+
+<span class="token keyword">import</span> shop <span class="token keyword">from</span> <span class="token string">'@/api/shop'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    cart<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    purchageStatus<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">cartBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">.</span>cart<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>cartItem <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> book <span class="token operator">=</span> state<span class="token punctuation">.</span>books<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>book <span class="token operator">=&gt;</span> book<span class="token punctuation">.</span>id <span class="token operator">===</span> cartItem<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span>
+          name<span class="token punctuation">:</span> book<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+          price<span class="token punctuation">:</span> book<span class="token punctuation">.</span>price<span class="token punctuation">,</span>
+          quantity<span class="token punctuation">:</span> cartItem<span class="token punctuation">.</span>quantity
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">cartTotal</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> getters<span class="token punctuation">.</span>cartBooks
+        <span class="token punctuation">.</span><span class="token function">reduce</span><span class="token punctuation">(</span><span class="token punctuation">(</span>total<span class="token punctuation">,</span>cartItem<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> total <span class="token operator">+</span> cartItem<span class="token punctuation">.</span>price <span class="token operator">*</span> cartItem<span class="token punctuation">.</span>quantity<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">addBookToCart</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> commit<span class="token punctuation">}</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>getters<span class="token punctuation">.</span><span class="token function">checkOutOfStock</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> cartItem <span class="token operator">=</span> state<span class="token punctuation">.</span>cart<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>item <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cartItem<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'pushBookToCart'</span><span class="token punctuation">,</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increamentBookQuantity'</span><span class="token punctuation">,</span> cartItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'decreamentBookInventory'</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">purchage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> commit<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      shop<span class="token punctuation">.</span><span class="token function">buyBooks</span><span class="token punctuation">(</span>
+        state<span class="token punctuation">.</span>cart<span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'emptyCart'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'notifyStatus'</span><span class="token punctuation">,</span> <span class="token string">'성공'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'notifyStatus'</span><span class="token punctuation">,</span> <span class="token string">'실패'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">emptyCart</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>cart <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">notifyStatus</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> status<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>purchageStatus <span class="token operator">=</span> status<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">pushBookToCart</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> bookId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>cart<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        id<span class="token punctuation">:</span> bookId<span class="token punctuation">,</span>
+        quantity<span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">increamentBookQuantity</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> cartItem<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      cartItem<span class="token punctuation">.</span>quantity<span class="token operator">++</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>분리 관리되는 각 모듈을 스토어에서 <code>modules</code> 속성에 설정합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><br><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br></div><pre class="language-js"><code><span class="token comment">// store/index.js</span>
+
+<span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Vuex <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> books <span class="token keyword">from</span> <span class="token string">'./modules/books'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> cart <span class="token keyword">from</span> <span class="token string">'./modules/cart'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  modules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    books<span class="token punctuation">,</span> cart
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><h2 id="모듈-분리에-따른-코드-리팩토링"><a href="#모듈-분리에-따른-코드-리팩토링" aria-hidden="true" class="header-anchor">#</a> 모듈 분리에 따른 코드 리팩토링</h2> <p>모듈을 분리한 후, Vue Devtools 개발 도구 Vuex 탭을 살펴보면 스토어에 병합된 모듈의 각 스테이트는 모듈 객체에 종속되어 있는 것을 볼 수 있습니다.
+분리된 모듈은 로컬 스테이트를 가지기 때문입니다.</p> <blockquote><p>store.state.books.books</p></blockquote> <img src="/vuex/images/modules-refactoring.png" alt> <p>이러한 이유로 컴포넌트가 스토어의 각 스테이트를 올바로 찾지 못해 애플리케이션이 정상적으로 작동하지 않게 됩니다.
+스토어의 스테이트를 올바로 접근할 수 있도록 코드를 변경해야 정상 작동됩니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// components/BookList.vue</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'BookList'</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      books<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>books<span class="token punctuation">.</span>books
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>그런데 <code>state.books.books</code>는 이름이 중복적인 느낌이 강하니 <code>books.js</code> 모듈을 수정해봅니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/modules/books.js</span>
+
+<span class="token keyword">import</span> shop <span class="token keyword">from</span> <span class="token string">'@/api/shop'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    items<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// books: []</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">availableBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>book <span class="token operator">=&gt;</span> book<span class="token punctuation">.</span>inventory <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>
+      <span class="token comment">// return state.books.filter(book =&gt; book.inventory &gt; 0)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">setBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> books<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>items <span class="token operator">=</span> books
+      <span class="token comment">// state.books = books</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><p>앞서 중복되었던 이름 대신, <code>state.books.items</code>를 사용해 이질감을 줄일 수 있습니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// components/BookList.vue</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">'BookList'</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      books<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>books<span class="token punctuation">.</span>items
+      <span class="token comment">// books: state =&gt; state.books.books</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>cart.js</code> 또한 동일한 방법으로 수정합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/modules/cart.js</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  state<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    items<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token comment">// cart: [],</span>
+    purchageStatus<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">cartBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> state<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>cartItem <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// return state.cart.map(cartItem =&gt; { ... });</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">addBookToCart</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> commit<span class="token punctuation">}</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>getters<span class="token punctuation">.</span><span class="token function">checkOutOfStock</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> cartItem <span class="token operator">=</span> state<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>item <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment">// const cartItem = state.cart.find(item =&gt; item.id === book.id);</span>
+        <span class="token comment">// ...</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function">purchage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> commit<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      shop<span class="token punctuation">.</span><span class="token function">buyBooks</span><span class="token punctuation">(</span>
+        state<span class="token punctuation">.</span>items<span class="token punctuation">,</span>
+        <span class="token comment">// state.cart,</span>
+        <span class="token comment">// ...</span>
+      <span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  mutations<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">emptyCart</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      <span class="token comment">// state.cart = [];</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+    <span class="token function">pushBookToCart</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> bookId<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      state<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token operator">...</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// state.cart.push({ ... });</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h2 id="쇼핑-카트에-추가-시-오류-발생"><a href="#쇼핑-카트에-추가-시-오류-발생" aria-hidden="true" class="header-anchor">#</a> 쇼핑 카트에 추가 시 오류 발생</h2> <p>화면에 출력된 도서 목록의 '카트에 추가' 버튼을 누르니 다음과 같은 오류가 발생합니다.</p> <div class="danger custom-block"><p class="custom-block-title">오류 발생!</p> <p>Cannot read property 'find' of undefined</p></div> <img src="/vuex/images/error-find.png" alt> <p>해당 오류는 사용자가 선택한 도서를 쇼핑 카트에 추가할 때 <code>cart</code>모듈의 <code>cartBooks</code> 게터가
+<code>books</code> 모듈에 접근해야 하는데 cart 모듈의 <code>state</code>는 로컬 스테이트로 <code>books</code> 모듈에
+접근할 수 없어 발생한 오류입니다.</p> <p>이 문제를 해결하려면 스토어의 루트 스테이트를 사용해야 합니다. Vuex 게터는 3번째 인자로
+<code>rootState</code>를 전달 받습니다. 이를 통해 <code>books</code>에 접근하면 문제가 해결됩니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/modules/cart.js</span>
+
+getters<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token function">cartBooks</span><span class="token punctuation">(</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> rootState<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> state<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>cartItem <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> book <span class="token operator">=</span> rootState<span class="token punctuation">.</span>books<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>book <span class="token operator">=&gt;</span> book<span class="token punctuation">.</span>id <span class="token operator">===</span> cartItem<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// const book = state.books.find(book =&gt; book.id === cartItem.id);</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vuex/4-vuex-options/SeparationConcerns.html" class="prev">
+          관심사의 분리
+        </a></span> <span class="next"><a href="/vuex/4-vuex-options/NamespacedModules.html">
+          네임스페이스 모듈
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/vuex/assets/js/app.b4930d20.js" defer></script><script src="/vuex/assets/js/22.ca164fa7.js" defer></script>
+  </body>
+</html>

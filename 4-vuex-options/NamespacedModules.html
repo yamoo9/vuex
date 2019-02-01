@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>네임스페이스 모듈 | Vuex 러닝 가이드북</title>
+    <meta name="description" content="Vuex 학습을 위한 가이드북 입니다.">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="keywords" content="vue, vuex, 상태 관리 매니저">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <link rel="shortcut icon" href="/vuex/favicon/favicon.png">
+    
+    <link rel="preload" href="/vuex/assets/css/0.styles.0b323839.css" as="style"><link rel="preload" href="/vuex/assets/js/app.b4930d20.js" as="script"><link rel="preload" href="/vuex/assets/js/23.91fa4c21.js" as="script"><link rel="prefetch" href="/vuex/assets/js/10.374c869d.js"><link rel="prefetch" href="/vuex/assets/js/11.8d4ec395.js"><link rel="prefetch" href="/vuex/assets/js/12.fd922986.js"><link rel="prefetch" href="/vuex/assets/js/13.55ca2ad1.js"><link rel="prefetch" href="/vuex/assets/js/14.345c42bc.js"><link rel="prefetch" href="/vuex/assets/js/15.83d10d5b.js"><link rel="prefetch" href="/vuex/assets/js/16.daeca327.js"><link rel="prefetch" href="/vuex/assets/js/17.76526891.js"><link rel="prefetch" href="/vuex/assets/js/18.d0cfdee5.js"><link rel="prefetch" href="/vuex/assets/js/19.0de1610f.js"><link rel="prefetch" href="/vuex/assets/js/2.c476735a.js"><link rel="prefetch" href="/vuex/assets/js/20.08cec3aa.js"><link rel="prefetch" href="/vuex/assets/js/21.362492ad.js"><link rel="prefetch" href="/vuex/assets/js/22.ca164fa7.js"><link rel="prefetch" href="/vuex/assets/js/24.ee7c31a8.js"><link rel="prefetch" href="/vuex/assets/js/25.ff7fc6ad.js"><link rel="prefetch" href="/vuex/assets/js/26.26dae915.js"><link rel="prefetch" href="/vuex/assets/js/3.10d7cbbb.js"><link rel="prefetch" href="/vuex/assets/js/4.e28e8c39.js"><link rel="prefetch" href="/vuex/assets/js/5.30ebdc09.js"><link rel="prefetch" href="/vuex/assets/js/6.bda72be0.js"><link rel="prefetch" href="/vuex/assets/js/7.7354255b.js"><link rel="prefetch" href="/vuex/assets/js/8.607777b5.js"><link rel="prefetch" href="/vuex/assets/js/9.f6b9acc8.js">
+    <link rel="stylesheet" href="/vuex/assets/css/0.styles.0b323839.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuex/" class="home-link router-link-active"><img src="/vuex/images/vuex.png" alt="Vuex 러닝 가이드북" class="logo"> <span class="site-name can-hide">Vuex 러닝 가이드북</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>소개</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>준비</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Vuex 기초</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>쇼핑 카트</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Vuex 옵션</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/vuex/4-vuex-options/DynamicGetters.html" class="sidebar-link">동적 Vuex 게터</a></li><li><a href="/vuex/4-vuex-options/MapHelpers.html" class="sidebar-link">Map 헬퍼</a></li><li><a href="/vuex/4-vuex-options/SeparationConcerns.html" class="sidebar-link">관심사의 분리</a></li><li><a href="/vuex/4-vuex-options/Modules.html" class="sidebar-link">모듈</a></li><li><a href="/vuex/4-vuex-options/NamespacedModules.html" class="active sidebar-link">네임스페이스 모듈</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/vuex/4-vuex-options/NamespacedModules.html#모듈-사용-시-주의할-점" class="sidebar-link">모듈 사용 시, 주의할 점</a></li><li class="sidebar-sub-header"><a href="/vuex/4-vuex-options/NamespacedModules.html#네임스페이스로-문제-해결" class="sidebar-link">네임스페이스로 문제 해결</a></li><li class="sidebar-sub-header"><a href="/vuex/4-vuex-options/NamespacedModules.html#코드-리팩토링" class="sidebar-link">코드 리팩토링</a></li></ul></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="네임스페이스-모듈"><a href="#네임스페이스-모듈" aria-hidden="true" class="header-anchor">#</a> 네임스페이스 모듈</h1> <h2 id="모듈-사용-시-주의할-점"><a href="#모듈-사용-시-주의할-점" aria-hidden="true" class="header-anchor">#</a> 모듈 사용 시, 주의할 점</h2> <p>모듈을 사용해 스토어를 관리하게 될 때 각각의 모듈이 가진 액션이 동일한 이름일 경우 문제가 발생합니다.
+예를 들어 <code>books</code> 모듈과 <code>cart</code> 모듈에 동일한 이름의 액션이 있을 경우 어떤 문제가 발생하는지 확인해봅시다.</p> <p><code>books</code> 모듈의 <code>fetchBooks</code> 액션 코드에 Console에서 확인 가능한 로그를 남깁니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><div class="highlighted"> </div><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/modules/books.js</span>
+
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token function">fetchBooks</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'books에서 실행'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token operator">...</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>cart</code> 모듈에 동일한 이름의 액션을 추가하고 Console에서 확인 가능한 로그를 남깁니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><div class="highlighted"> </div><div class="highlighted"> </div><div class="highlighted"> </div><br><br></div><pre class="language-js"><code><span class="token comment">// store/modules/cart.js</span>
+
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token function">fetchBooks</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'cart에서 실행'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>브라우저 Console을 확인하면 각 모듈의 동일한 이름의 액션이 모두 실행된 것을 확인할 수 있습니다.
+이처럼 의도와 달리 모듈 마다 동일한 이름의 액션 또는 뮤테이션을 가질 경우 모두 실행되는 문제가 발생될 수 있습니다.</p> <img src="/vuex/images/problum-namespacing.png" alt> <div class="danger custom-block"><p class="custom-block-title">주의!</p> <p>게터의 경우, 모듈 마다 동일한 이름을 가질 경우 브라우저 Console에 중복 오류를 출력합니다.</p> <img src="/vuex/images/error-getters.png" alt style="width: 450px"></div> <h2 id="네임스페이스로-문제-해결"><a href="#네임스페이스로-문제-해결" aria-hidden="true" class="header-anchor">#</a> 네임스페이스로 문제 해결</h2> <p>이러한 문제를 해결하기 위해 Vuex는 모듈의 네임스페이스를 사용할 수 있도록 제공합니다.
+각 모듈에 네임스페이스를 설정하는 방법은 다음과 같습니다. 모듈에 <code>namespaced</code> 속성을 추가하고 값을 <code>true</code>로 설정합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// store/modules/books.js</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  namespaced<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// store/modules/cart.js</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  namespaced<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>하지만 <code>namespaced</code>속성을 모듈에 설정하면 브라우저 Console에 다음의 오류가 출력됩니다.</p> <div class="danger custom-block"><p class="custom-block-title">오류 발생!</p> <p>unknown action type: fetchBooks
+unknown action type: cartBooks</p></div> <img src="/vuex/images/error-unknown-action.png" alt> <p>오류가 발생한 이유는 모듈의 네임스페이스를 사용하기로 설정함에 따라
+모듈의 네임스페이스를 통하지 않은 기존의 액션, 뮤테이션, 게터 코드는 정상적으로 모듈에 접근할 수 없기 때문입니다.
+Vuex 탭을 보면 네임스페이스가 설정된 모듈의 게터를 확인할 수 있습니다.</p> <img src="/vuex/images/confirm-vuex-namespaced.png" alt> <h2 id="코드-리팩토링"><a href="#코드-리팩토링" aria-hidden="true" class="header-anchor">#</a> 코드 리팩토링</h2> <p><code>cart</code> 모듈에서 코드 수정이 필요한 부분은 <code>checkOutOfStock</code>입니다. 모듈 내부에서 사용된 <code>getters</code>는 로컬 게터로
+<code>books</code> 모듈 네임스페이스의 <code>checkOutOfStock</code>에 접근하려면 <code>rootGetters</code>를 <code>context</code>에서 불러와 사용해야 합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/modules/cart.js</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  namespaced<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+  actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token function">addBookToCart</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> commit<span class="token punctuation">,</span> rootGetters<span class="token punctuation">}</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>rootGetters<span class="token punctuation">[</span><span class="token string">'books/checkOutOfStock'</span><span class="token punctuation">]</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment">// if (!getters.checkOutOfStock(book)) {</span>
+        <span class="token keyword">const</span> cartItem <span class="token operator">=</span> state<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>item <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cartItem<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'pushBookToCart'</span><span class="token punctuation">,</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increamentBookQuantity'</span><span class="token punctuation">,</span> cartItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'decreamentBookInventory'</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// ...</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>BookList</code> 컴포넌트에서 수정이 필요한 부분은 게터와 액션 부분입니다. 적합한 모듈의 네임스페이스를 설정합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br><div class="highlighted"> </div><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// components/BookList.vue</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">&quot;BookList&quot;</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      books<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>books<span class="token punctuation">.</span>items
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">{</span> checkOutOfStock<span class="token punctuation">:</span> <span class="token string">&quot;books/checkOutOfStock&quot;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token comment">// ...mapGetters({ checkOutOfStock: &quot;checkOutOfStock&quot; })</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token comment">// ...</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      fetchBooks<span class="token punctuation">:</span> <span class="token string">&quot;books/fetchBooks&quot;</span><span class="token punctuation">,</span>
+      <span class="token comment">// fetchBooks: &quot;fetchBooks&quot;,</span>
+      addBookToCart<span class="token punctuation">:</span> <span class="token string">&quot;cart/addBookToCart&quot;</span>
+      <span class="token comment">// addBookToCart: &quot;addBookToCart&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p><code>ShoppingCart</code> 컴포넌트 역시 마찬가지로 게터와 액션 부분에 적절한 네임스페이스를 설정합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><div class="highlighted"> </div><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// components/ShoppingCart.vue</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  name<span class="token punctuation">:</span> <span class="token string">&quot;ShoppingCart&quot;</span><span class="token punctuation">,</span>
+  computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapState</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      purchageStatus<span class="token punctuation">:</span> state <span class="token operator">=&gt;</span> state<span class="token punctuation">.</span>cart<span class="token punctuation">.</span>purchageStatus
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      books<span class="token punctuation">:</span> <span class="token string">&quot;cart/cartBooks&quot;</span><span class="token punctuation">,</span>
+      <span class="token comment">// books: &quot;cartBooks&quot;,</span>
+      total<span class="token punctuation">:</span> <span class="token string">&quot;cart/cartTotal&quot;</span>
+      <span class="token comment">// total: &quot;cartTotal&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">mapActions</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      purchageBook<span class="token punctuation">:</span> <span class="token string">&quot;cart/purchage&quot;</span>
+      <span class="token comment">// purchageBook: &quot;purchage&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p>동일한 모듈에서 다수의 속성을 빼내야 할 경우 Map 헬퍼의 첫번째 인자로 네임스페이스를 설정할 수 있습니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><div class="highlighted"> </div><br><br><br><br></div><pre class="language-js"><code><span class="token operator">...</span><span class="token function">mapGetters</span><span class="token punctuation">(</span><span class="token string">'cart'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  books<span class="token punctuation">:</span> <span class="token string">&quot;cartBooks&quot;</span><span class="token punctuation">,</span>
+  total<span class="token punctuation">:</span> <span class="token string">&quot;cartTotal&quot;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></div> <p><code>BookList</code>, <code>ShoppingCart</code> 컴포넌트를 수정 완료하면 브라우저 화면에 애플리케이션이 문제 없이 그려집니다.
+하지만 '카트에 추가' 버튼을 누르면 오류가 발생합니다.</p> <div class="danger custom-block"><p class="custom-block-title">오류 발생!</p> <p>unknown local mutation type: decreamentBookInventory, global type: cart/decreamentBookInventory</p></div> <img src="/vuex/images/error-unknown-mutation.png" alt> <p>문제가 발생한 이유는 <code>cart</code> 모듈의 <code>addBookToCart</code> 액션에서 사용된
+<code>decreamentBookInventory</code> 뮤테이션이 <code>books</code> 모듈의 것이기 때문입니다.
+문제를 해결하기 위해 <code>books</code> 네임스페이스를 적용한 코드로 수정합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/modules/cart.js</span>
+
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token function">addBookToCart</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> commit<span class="token punctuation">,</span> rootGetters<span class="token punctuation">}</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>rootGetters<span class="token punctuation">[</span><span class="token string">'books/checkOutOfStock'</span><span class="token punctuation">]</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> cartItem <span class="token operator">=</span> state<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>item <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cartItem<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'pushBookToCart'</span><span class="token punctuation">,</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increamentBookQuantity'</span><span class="token punctuation">,</span> cartItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'books/decreamentBookInventory'</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// commit('decreamentBookInventory', book);</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><p>하지만 문제는 해결되지 않습니다. 오류는 여전히 발생합니다. 문제가 여전히 발생하는 이유는 오류 메시지가 알려줍니다.</p> <div class="danger custom-block"><p class="custom-block-title">오류 발생!</p> <p>unknown local mutation type: books/decreamentBookInventory, global type: cart/books/decreamentBookInventory</p></div> <img src="/vuex/images/error-unknown-mutation2.png" alt> <p>원인은 <code>cart/books/decreamentBookInventory</code>에 있습니다. <code>cart/books/</code>로 보아 <code>cart</code> 모듈 내부에서 <code>books/decreamentBookInventory</code> 하위 모듈을 찾으려 하기 때문입니다. 이 문제를 해결하려면 <code>cart</code> 모듈이 아니라 루트에서 커밋을 실행하도록 설정해야 합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><br><br><br><br><br><br><br><br><br><div class="highlighted"> </div><br><br><br><br><br></div><pre class="language-js"><code><span class="token comment">// store/modules/cart.js</span>
+
+actions<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+  <span class="token function">addBookToCart</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> commit<span class="token punctuation">,</span> rootGetters<span class="token punctuation">}</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>rootGetters<span class="token punctuation">[</span><span class="token string">'books/checkOutOfStock'</span><span class="token punctuation">]</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> cartItem <span class="token operator">=</span> state<span class="token punctuation">.</span>items<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>item <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cartItem<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'pushBookToCart'</span><span class="token punctuation">,</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increamentBookQuantity'</span><span class="token punctuation">,</span> cartItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'books/decreamentBookInventory'</span><span class="token punctuation">,</span> book<span class="token punctuation">,</span> <span class="token punctuation">{</span>root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// commit('books/decreamentBookInventory', book);</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p>모듈에서 커밋을 루트에서 실행한 것과 같이 설정할 경우 다음과 같이 3번째 인자로 옵션을 설정합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'모듈네임스페이스/뮤테이션'</span><span class="token punctuation">,</span> 페이로드<span class="token punctuation">,</span> <span class="token punctuation">{</span>root<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></div> <p>이제 모든 문제가 해결되었습니다. 쇼핑 카트 애플리케이션은 문제 없이 정상 작동합니다. 도서를 카트에 추가하거나,
+결재 버튼을 누르면 Vue Devtools 개발 도구 Vuex 탭에 이벤트가 기록됩니다. 기록된 이벤트를 확인하면 어떤
+모듈의 뮤테이션이 실행되었는지 검토할 수 있습니다.</p> <img src="/vuex/images/success-module-namespace.png" alt></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vuex/4-vuex-options/Modules.html" class="prev">
+          모듈
+        </a></span> <!----></p></div> </div> <!----></div></div>
+    <script src="/vuex/assets/js/app.b4930d20.js" defer></script><script src="/vuex/assets/js/23.91fa4c21.js" defer></script>
+  </body>
+</html>

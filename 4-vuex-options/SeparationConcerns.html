@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>관심사의 분리 | Vuex 러닝 가이드북</title>
+    <meta name="description" content="Vuex 학습을 위한 가이드북 입니다.">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="keywords" content="vue, vuex, 상태 관리 매니저">
+  <meta name="robots" content="index,follow">
+  <meta name="googlebot" content="index,follow">
+  <link rel="shortcut icon" href="/vuex/favicon/favicon.png">
+    
+    <link rel="preload" href="/vuex/assets/css/0.styles.0b323839.css" as="style"><link rel="preload" href="/vuex/assets/js/app.b4930d20.js" as="script"><link rel="preload" href="/vuex/assets/js/24.ee7c31a8.js" as="script"><link rel="preload" href="/vuex/assets/js/3.10d7cbbb.js" as="script"><link rel="prefetch" href="/vuex/assets/js/10.374c869d.js"><link rel="prefetch" href="/vuex/assets/js/11.8d4ec395.js"><link rel="prefetch" href="/vuex/assets/js/12.fd922986.js"><link rel="prefetch" href="/vuex/assets/js/13.55ca2ad1.js"><link rel="prefetch" href="/vuex/assets/js/14.345c42bc.js"><link rel="prefetch" href="/vuex/assets/js/15.83d10d5b.js"><link rel="prefetch" href="/vuex/assets/js/16.daeca327.js"><link rel="prefetch" href="/vuex/assets/js/17.76526891.js"><link rel="prefetch" href="/vuex/assets/js/18.d0cfdee5.js"><link rel="prefetch" href="/vuex/assets/js/19.0de1610f.js"><link rel="prefetch" href="/vuex/assets/js/2.c476735a.js"><link rel="prefetch" href="/vuex/assets/js/20.08cec3aa.js"><link rel="prefetch" href="/vuex/assets/js/21.362492ad.js"><link rel="prefetch" href="/vuex/assets/js/22.ca164fa7.js"><link rel="prefetch" href="/vuex/assets/js/23.91fa4c21.js"><link rel="prefetch" href="/vuex/assets/js/25.ff7fc6ad.js"><link rel="prefetch" href="/vuex/assets/js/26.26dae915.js"><link rel="prefetch" href="/vuex/assets/js/4.e28e8c39.js"><link rel="prefetch" href="/vuex/assets/js/5.30ebdc09.js"><link rel="prefetch" href="/vuex/assets/js/6.bda72be0.js"><link rel="prefetch" href="/vuex/assets/js/7.7354255b.js"><link rel="prefetch" href="/vuex/assets/js/8.607777b5.js"><link rel="prefetch" href="/vuex/assets/js/9.f6b9acc8.js">
+    <link rel="stylesheet" href="/vuex/assets/css/0.styles.0b323839.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/vuex/" class="home-link router-link-active"><img src="/vuex/images/vuex.png" alt="Vuex 러닝 가이드북" class="logo"> <span class="site-name can-hide">Vuex 러닝 가이드북</span></a> <div class="links" style="max-width:nullpx;"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <div class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/vuex/0-intro/" class="nav-link">가이드북</a></div><div class="nav-item"><a href="https://goo.gl/DxDhik" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  오프라인 강의
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://vuex.vuejs.org" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Vuex 문서
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><div class="sidebar-group first collapsable"><p class="sidebar-heading"><span>소개</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>준비</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>Vuex 기초</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading"><span>쇼핑 카트</span> <span class="arrow right"></span></p> <!----></div></li><li><div class="sidebar-group collapsable"><p class="sidebar-heading open"><span>Vuex 옵션</span> <span class="arrow down"></span></p> <ul class="sidebar-group-items"><li><a href="/vuex/4-vuex-options/DynamicGetters.html" class="sidebar-link">동적 Vuex 게터</a></li><li><a href="/vuex/4-vuex-options/MapHelpers.html" class="sidebar-link">Map 헬퍼</a></li><li><a href="/vuex/4-vuex-options/SeparationConcerns.html" class="active sidebar-link">관심사의 분리</a></li><li><a href="/vuex/4-vuex-options/Modules.html" class="sidebar-link">모듈</a></li><li><a href="/vuex/4-vuex-options/NamespacedModules.html" class="sidebar-link">네임스페이스 모듈</a></li></ul></div></li></ul> </div> <div class="page"> <div class="content"><h1 id="관심사의-분리"><a href="#관심사의-분리" aria-hidden="true" class="header-anchor">#</a> 관심사의 분리</h1> <p><a href="https://goo.gl/LGDyBP" target="_blank" rel="noopener noreferrer">관심사의 분리(Separation of Concerns)<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> 원칙에 따라 스토어의 액션, 뮤테이션, 게터 등을 분리해 관리할 수 있습니다.</p> <p>스토어의 <code>index.js</code> 파일에서 <code>actions</code> 부분을 제거한 후, 외부에서 불러와 설정되도록 코드를 변경합니다.</p> <div class="language-js extra-class"><div class="highlight-lines"><br><br><div class="highlighted"> </div><br><br><div class="highlighted"> </div><br><br></div><pre class="language-js"><code><span class="token comment">// store/index.js</span>
+
+<span class="token keyword">import</span> actions <span class="token keyword">from</span> <span class="token string">'./actions'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token comment">// ...</span>
+  actions<span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p><code>actions.js</code> 파일을 만든 후, 분리된 액션 코드를 별도로 관리할 수 있습니다.
+분리된 액션은 <code>shop</code> 객체의 메서드에 접근할 수 있어야 하므로 <code>shop</code> 모듈을 불러와야 합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// store/actions.js</span>
+
+<span class="token keyword">import</span> shop <span class="token keyword">from</span> <span class="token string">'@/api/shop'</span><span class="token punctuation">;</span>
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+  <span class="token function">addBookToCart</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> getters<span class="token punctuation">,</span> commit<span class="token punctuation">}</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>getters<span class="token punctuation">.</span><span class="token function">checkOutOfStock</span><span class="token punctuation">(</span>book<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> cartItem <span class="token operator">=</span> state<span class="token punctuation">.</span>cart<span class="token punctuation">.</span><span class="token function">find</span><span class="token punctuation">(</span>item <span class="token operator">=&gt;</span> item<span class="token punctuation">.</span>id <span class="token operator">===</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>cartItem<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'pushBookToCart'</span><span class="token punctuation">,</span> book<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'increamentBookQuantity'</span><span class="token punctuation">,</span> cartItem<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'decreamentBookInventory'</span><span class="token punctuation">,</span> book<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">purchage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>state<span class="token punctuation">,</span> commit<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    shop<span class="token punctuation">.</span><span class="token function">buyBooks</span><span class="token punctuation">(</span>
+      state<span class="token punctuation">.</span>cart<span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'emptyCart'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'notifyStatus'</span><span class="token punctuation">,</span> <span class="token string">'성공'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">'notifyStatus'</span><span class="token punctuation">,</span> <span class="token string">'실패'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token function">fetchBooks</span><span class="token punctuation">(</span><span class="token punctuation">{</span>commit<span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+      shop<span class="token punctuation">.</span><span class="token function">getBooks</span><span class="token punctuation">(</span>books <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">commit</span><span class="token punctuation">(</span><span class="token string">&quot;setBooks&quot;</span><span class="token punctuation">,</span> books<span class="token punctuation">)</span>
+        <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre></div><div class="tip custom-block"><p class="custom-block-title">NOTE</p> <p>동일한 방법으로 스테이트, 게터, 뮤테이션 또한 분리 가능합니다.</p> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// store/index.js</span>
+
+<span class="token keyword">import</span> Vue       <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Vuex      <span class="token keyword">from</span> <span class="token string">'vuex'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> state     <span class="token keyword">from</span>  <span class="token string">'@/store/state'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> getters   <span class="token keyword">from</span>  <span class="token string">'@/store/getters'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> actions   <span class="token keyword">from</span>  <span class="token string">'@/store/actions'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> mutations <span class="token keyword">from</span>  <span class="token string">'@/store/mutations'</span><span class="token punctuation">;</span>
+
+Vue<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span>Vuex<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token keyword">new</span> <span class="token class-name">Vuex<span class="token punctuation">.</span>Store</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  state<span class="token punctuation">,</span>
+  getters<span class="token punctuation">,</span>
+  actions<span class="token punctuation">,</span>
+  mutations
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre></div><p>스토어 디렉토리는 다음과 같이 구성됩니다.</p> <pre class="vue-container" data-v-3b89fdd4>  <code data-v-3b89fdd4><b data-v-3b89fdd4>src/store</b>
+   ├── index.js
+   ├── state.js
+   ├── getters.js
+   ├── actions.js
+   └── mutations.js
+</code>
+</pre></div></div> <div class="page-edit"><!----> <!----></div> <div class="page-nav"><p class="inner"><span class="prev">
+        ←
+        <a href="/vuex/4-vuex-options/MapHelpers.html" class="prev">
+          Map 헬퍼
+        </a></span> <span class="next"><a href="/vuex/4-vuex-options/Modules.html">
+          모듈
+        </a>
+        →
+      </span></p></div> </div> <!----></div></div>
+    <script src="/vuex/assets/js/app.b4930d20.js" defer></script><script src="/vuex/assets/js/24.ee7c31a8.js" defer></script><script src="/vuex/assets/js/3.10d7cbbb.js" defer></script>
+  </body>
+</html>
